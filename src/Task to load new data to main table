@@ -1,0 +1,6 @@
+CREATE OR REPLACE TASK rgh_assignment.employee_data.employee_insert                                                                               
+         WAREHOUSE = compute_wh                                                                                                                            
+         SCHEDULE = '1 minute'                                                                                                                                
+         WHEN SYSTEM$STREAM_HAS_DATA('rgh_assignment.employee_data.employee_new')                                                                            
+         as                                                                                                                                                
+         insert into rgh_assignment.employee_data.employee_data select * from rgh_assignment.employee_data.employee_new;
