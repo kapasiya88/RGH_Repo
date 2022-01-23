@@ -3,10 +3,7 @@ Steps:
 ***1) Create an AWS IAM user to connect to Unix server using the AWS CLI.***
 
 ***2) Create a bitbucket on s3 where all the intended files need to be uploaded.***
-
-    Commands to upload files from unix server to s3.
-    
-         https://github.com/kapasiya88/RGH_Repo/blob/9136a33e4e9f072c2088cdaa745adfc27ae84e67/src/Commands%20to%20upload%20files%20from%20unix%20server%20to%20s3
+           https://github.com/kapasiya88/RGH_Repo/blob/9136a33e4e9f072c2088cdaa745adfc27ae84e67/src/Commands%20to%20upload%20files%20from%20unix%20server%20to%20s3
   
   ***3) Create an integration object to establish connection between Snowflake and AWS.***
               https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/integration%20object
