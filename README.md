@@ -16,20 +16,20 @@ Both the streams will be read by different tasks to load the data into snowflake
 ****3) Create an integration object to establish connection between Snowflake and AWS.****
               https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/integration%20object
   
-  ***4) Create a file format to describe the properties of inbound file.***
+****4) Create a file format to describe the properties of inbound file.****
               https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/file%20format
   
-  ***5) Create an external stage to point to S3 location.***   
+****5) Create an external stage to point to S3 location.****
           https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/external%20stage
   
-  ***5) Create transient table where data will be populated from external stage via snowpipe.***  
+****5) Create transient table where data will be populated from external stage via snowpipe.**** 
         https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/transient%20table
   
-  ***6) Create a snowpipe which will populate the data after few data transformation to a transient table.Datatype conversions are included in snowpipe.
-          Eg:to_number,to_decimal,to_date***  
+****6) Create a snowpipe which will populate the data after few data transformation to a transient table.Datatype conversions are included in snowpipe.**
+          Eg:to_number,to_decimal,to_date**
           https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Snowpipe
   
-  ***7) create streams to capture the CDC.***                                                                                                                            
+****7) create streams to capture the CDC.****                                                                                                                          
     a) Stream to capture the newly inserted data.                                                                                                              
           https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Insert%20Stream
           
@@ -37,13 +37,13 @@ Both the streams will be read by different tasks to load the data into snowflake
   b) Stream to capture the CDC data.
          https://github.com/kapasiya88/RGH_Repo/blob/998fe86a11ad64007f9524ba2e1f58be5c6d47f0/src/CDC%20stream
   
-  ***8) Snowflake table where data will be loaded.***
+****8) Snowflake table where data will be loaded.****
            https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Permanent%20table
   
-  ***9) Create task to load data newly inserted data from stream to snowflake table .***
+****9) Create task to load data newly inserted data from stream to snowflake table .****
            https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Task%20to%20load%20new%20data%20to%20main%20table
   
-  ***10) Create task to load CDC data from stream to snowflake table .***
+****10) Create task to load CDC data from stream to snowflake table .****
          https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Task%20to%20load%20CDC%20data%20to%20main%20table
 
 
