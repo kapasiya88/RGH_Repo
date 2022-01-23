@@ -1,0 +1,26 @@
+CREATE OR REPLACE TASK rgh_assignment.employee_data.employee_transorm                                                                               
+         WAREHOUSE = compute_wh                                                                                                                            
+         SCHEDULE = '1 minute'                                                                                                                                                                                                          
+         as    
+         insert into rgh_assignment.employee_data.employee_data_transform
+    select EmpId,
+Prefix,
+initcap(FirstName),
+initcap(LastName),
+case Gender when 'F' then 1 when 'M' then 2 else 0 end,
+lower(Email),
+DateOfBirth,
+DateOfJoining,
+Salary,
+to_number(substr(LastPercentHike,1,regexp_instr(LastPercentHike,'%')-1)),
+SSN ,
+PhoneNo ,
+PlaceName ,
+Country ,
+City ,
+State ,
+ZIP ,
+Region ,
+UserName ,
+Pasword
+from rgh_assignment.employee_data.employee_data_trans;
