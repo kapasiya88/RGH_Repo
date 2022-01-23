@@ -1,4 +1,4 @@
-***Project flow***:
+***Project flow***:                                                                                                                                             
 Source file will arrive to a particular path on Unix server with timestamp which will make the file unique everytime.
 Same file will be reflected on S3 and then will get loaded snowflake external stage.
 From external stage data will be loaded to snowflake transient table via snowpipe with few datatype conversions.
