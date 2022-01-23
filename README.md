@@ -1,6 +1,6 @@
 Steps:
 ----------------------------------------------------------------------------------------------------
-1) Create an AWS IAM user to connect to Unix server using the AWS CLI.
+***1) Create an AWS IAM user to connect to Unix server using the AWS CLI.***
 
 2) Create a bitbucket on s3 where all the intended files need to be uploaded.
 
