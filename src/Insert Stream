@@ -1,1 +1,1 @@
-create or replace stream rgh_assignment.employee_data.employee_new on table rgh_assignment.employee_data.employee_data_trans append_only=true;
+create or replace stream rgh_assignment.employee_data.employee_new on table rgh_assignment.employee_data.employee_data_transform append_only=true;
