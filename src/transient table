@@ -1,0 +1,21 @@
+create or replace transient table rgh_assignment.employee_data.employee_data_trans 
+(EmpId number,
+Prefix string,
+FirstName string,
+LastName string,
+Gender string,
+Email string,
+DateOfBirth date,
+DateOfJoining date,
+Salary float,
+LastPercentHike string,
+SSN string,
+PhoneNo string,P
+laceName string,
+Country string,
+City string,
+State string,
+ZIP string,
+Region string,
+UserName string,
+Pasword string);
