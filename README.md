@@ -24,7 +24,7 @@ Steps:
   ***7) create streams to capture the CDC.***                                                                                                                            
     a) Stream to capture the newly inserted data.                                                                                                              
           https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Insert%20Stream
-  
+          
     b) Stream to capture the CDC data.
            https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/CDC%20stream
   
