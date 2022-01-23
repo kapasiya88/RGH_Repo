@@ -4,15 +4,8 @@ Steps:
 
 ***2) Create a bitbucket on s3 where all the intended files need to be uploaded.***
 
-    Commands to upload files from unix server to s3:
-      Oms-MacBook-Pro:~ ompayla$ aws configure
-      AWS Access Key ID [****************KC4A]: <access key id>
-      AWS Secret Access Key [****************tEAK]: <secret access key>
-      Default region name [ap-south-1]: ap-south-1 
-      Default output format [json]: json        
-      Oms-MacBook-Pro:~ ompayla$ aws s3 cp /Users/ompayla/Desktop/Kajal/study/Assignment/Employee.csv s3://rgh-assignment/
-
-    NOTE: All the process of uploading the file/files on AWS can be automated by creating a unix shell script which can be called from a scheduler.
+    Commands to upload files from unix server to s3.
+         https://github.com/kapasiya88/RGH_Repo/blob/9136a33e4e9f072c2088cdaa745adfc27ae84e67/src/Commands%20to%20upload%20files%20from%20unix%20server%20to%20s3
   
   ***3) Create an integration object to establish connection between Snowflake and AWS.***
   
