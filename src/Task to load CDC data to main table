@@ -1,0 +1,20 @@
+CREATE OR REPLACE TASK rgh_assignment.employee_data.employee_merge                                                                            
+           WAREHOUSE = compute_wh                                                                                                                        
+           SCHEDULE = '1 minute'                                                                                                                            
+           WHEN SYSTEM$STREAM_HAS_DATA('rgh_assignment.employee_data.employee_CDC')                                                 
+            as                                                                                                                                             
+           merge into rgh_assignment.employee_data.employee_data  employee_data using  employee_CDC                                                           
+              on employee_data.Emp_id=employee_CDC.Emp_id                                                                                                    
+                when matched then update                                                                                                                     
+             set employee_data.Email=nvl(employee_CDC.Email,employee_data.Email),
+                   employee_data.Salary=nvl(employee_CDC.Salary,employee_data.Salary),
+                    employee_data.LastPercentHike=nvl(employee_CDC.LastPercentHike,employee_data.LastPercentHike),
+                    employee_data.PhoneNo=nvl(employee_CDC.PhoneNo,employee_data.PhoneNo),
+                    employee_data.PlaceName=nvl(employee_CDC.PlaceName,employee_data.PlaceName),
+                    employee_data.Country=nvl(employee_CDC.Country,employee_data.Country),
+                    employee_data.City=nvl(employee_CDC.City,employee_data.City),
+                    employee_data.State=nvl(employee_CDC.State,employee_data.State),
+                    employee_data.ZIP=nvl(employee_CDC.ZIP,employee_data.ZIP),
+                    employee_data.Region=nvl(employee_CDC.Region,employee_data.Region),
+                    employee_data.UserName=nvl(employee_CDC.UserName,employee_data.UserName),
+                    employee_data.Pasword=nvl(employee_CDC.Pasword,employee_data.Pasword);
