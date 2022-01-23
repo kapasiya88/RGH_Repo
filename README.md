@@ -1,5 +1,6 @@
 ***Project flow***:                                                                                                                                             
-Source file will arrive to a particular path on Unix server with timestamp which will make the file unique everytime.
+
+Source file  EmployeeData<YYYYMMDDHHMISS>.csv will arrive to a particular path on Unix server with timestamp which will make the file unique everytime.
 Same file will be reflected on S3 and then will get loaded snowflake external stage.
 From external stage data will be loaded to snowflake transient table via snowpipe with few datatype conversions.
 Once data is loaded to transient table then newly inserted data will be captured into Append_only stream and all the CDC will be captured into CDC stream.
