@@ -1,0 +1,10 @@
+create or replace pipe rgh_assignment.employee_data.snowpipe_emp                                                                             
+         auto_ingest=true as                                                                                                                                  
+         copy into rgh_assignment.employee_data.EMPLOYEE_DATA_TRANS                                                                                          
+          from (select to_number(t.$1) as emp_id,t.$2 as prefix,t.$3 as first_name,t.$4 last_name,                                                           
+          t.$5 gender, t.$6 email_id,to_date(t.$7,'MM/DD/YYYY') date_of_birth,to_date(t.$8,'MM/DD/YYYY') date_of_joining,                            
+          to_decimal(t.$9) salary,t.$10 prcnthike,t.$11 SSN,t.$12 phone_number,t.$13 place,t.$14 country,t.$15 city,t.$16 state,                   
+          to_number(t.$17) pincode,t.$18 region,t.$19 username,t.$20 pasword                                                                                 
+          from @rgh_assignment.employee_data.my_s3_stage/ t)                                                                                  
+        ON_ERROR='CONTINUE'                                                                                                                             
+        file_format = (format_name='rgh_assignment.employee_data.my_csv_format');
