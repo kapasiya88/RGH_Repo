@@ -2,7 +2,7 @@ Steps:
 ----------------------------------------------------------------------------------------------------
 ***1) Create an AWS IAM user to connect to Unix server using the AWS CLI.***
 
-2) Create a bitbucket on s3 where all the intended files need to be uploaded.
+***2) Create a bitbucket on s3 where all the intended files need to be uploaded.***
 
     Commands to upload files from unix server to s3:
       Oms-MacBook-Pro:~ ompayla$ aws configure
@@ -14,7 +14,7 @@ Steps:
 
     NOTE: All the process of uploading the file/files on AWS can be automated by creating a unix shell script which can be called from a scheduler.
   
-  3) Create an integration object to establish connection between Snowflake and AWS.
+  ***3) Create an integration object to establish connection between Snowflake and AWS.***
   
       create or replace storage integration s3_int                                   
        type = external_stage                                                                                                                            
@@ -23,27 +23,27 @@ Steps:
        storage_aws_role_arn = 'arn:aws:iam::211678918935:role/aws_snowflake_integrate/                                                                  
        storage_allowed_locations = ('s3://rgh-assignment/');
   
-  4) Create a file format to describe the properties of inbound file.
+  ***4) Create a file format to describe the properties of inbound file.***
   
         create or replace file format rgh_assignment.employee_data.my_csv_format                                                                                    
         type = csv field_delimiter = ',' skip_header = 1 null_if = ('NULL', 'null') empty_field_as_null = true,                             
          error_on_column_count_mismatch=false;
   
-  5) Create an external stage to point to S3 location.    
+  ***5) Create an external stage to point to S3 location.***   
   
          create or replace stage rgh_assignment.employee_data.my_s3_stage                                                                              
          storage_integration = s3_int                                                                                                                             
          url = 's3://rgh-assignment/'                                                                                                                        
          file_format = rgh_assignment.employee_data.my_csv_format;
   
-  5) Create transient table where data will be populated from external stage via snowpipe.   
+  ***5) Create transient table where data will be populated from external stage via snowpipe.***  
   
       create or replace transient table rgh_assignment.employee_data.employee_data_trans (EmpId number,Prefix string,FirstName string,LastName string,
       Gender string,Email string,DateOfBirth date,DateOfJoining date,Salary float,LastPercentHike string,SSN string,PhoneNo string,PlaceName string,Country 
       string,City string,State string,ZIP string,Region string,UserName string,Pasword string);
   
-  6) Create a snowpipe which will populate the data after few data transformation to a transient table.Datatype conversions are included in snowpipe.
-          Eg:to_number,to_decimal,to_date    
+  ***6) Create a snowpipe which will populate the data after few data transformation to a transient table.Datatype conversions are included in snowpipe.
+          Eg:to_number,to_decimal,to_date***  
   
             create or replace pipe rgh_assignment.employee_data.snowpipe_emp                                                                             
              auto_ingest=true as                                                                                                                                  
@@ -56,7 +56,7 @@ Steps:
             ON_ERROR='CONTINUE'                                                                                                                             
             file_format = (format_name='rgh_assignment.employee_data.my_csv_format');
   
-  7) create streams to capture the CDC.                                                                                                                            
+  ***7) create streams to capture the CDC.***                                                                                                                            
     a) Stream to capture the newly inserted data.                                                                                                              
           create or replace stream rgh_assignment.employee_data.employee_new on table rgh_assignment.employee_data.employee_data_trans append_only=true;
  
@@ -65,13 +65,13 @@ Steps:
            create or replace  stream rgh_assignment.employee_data.employee_CDC on 
              table rgh_assignment.employee_data.employee_data_trans; 
   
-  8) Snowflake table where data will be loaded.
+  ***8) Snowflake table where data will be loaded.***
  
          create or replace table rgh_assignment.employee_data.employee_data (EmpId number,Prefix string,FirstName string,LastName string,Gender string,
            Email string,DateOfBirth date,DateOfJoining date,Salary float,LastPercentHike string,SSN string,PhoneNo string,PlaceName string,Country string,
            City string,State string,ZIP string,Region string,UserName string,Pasword string);
   
-  9) Create task to load data newly inserted data from stream to snowflake table .
+  ***9) Create task to load data newly inserted data from stream to snowflake table .***
   
            CREATE OR REPLACE TASK rgh_assignment.employee_data.employee_insert                                                                               
              WAREHOUSE = compute_wh                                                                                                                            
@@ -80,7 +80,7 @@ Steps:
              as                                                                                                                                                
              insert into rgh_assignment.employee_data.employee_data select * from rgh_assignment.employee_data.employee_new;
   
-  10) Create task to load CDC data from stream to snowflake table .
+  ***10) Create task to load CDC data from stream to snowflake table .***
  
               CREATE OR REPLACE TASK rgh_assignment.employee_data.employee_merge                                                                            
                WAREHOUSE = compute_wh                                                                                                                        
