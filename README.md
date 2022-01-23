@@ -32,8 +32,8 @@ Both the streams will be read by different tasks to load the data into snowflake
           https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Snowpipe
            
 ****7) create a transient table where data will be loaded via a task performing various ETL process like case sensitivity transform,case stetements,substr statements.****
-           
-           https://github.com/kapasiya88/RGH_Repo/blob/85b3c005db4536c65d203303db87dd4aa25a6c54/src/transient%20table%20after%20data%20transformation
+ 
+ https://github.com/kapasiya88/RGH_Repo/blob/85b3c005db4536c65d203303db87dd4aa25a6c54/src/transient%20table%20after%20data%20transformation
            
      https://github.com/kapasiya88/RGH_Repo/blob/85b3c005db4536c65d203303db87dd4aa25a6c54/src/Task%20to%20load%20data%20into%20trans%20table%20after%20data%20transformation
   
