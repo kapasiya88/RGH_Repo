@@ -1,1 +1,1 @@
-create or replace  stream rgh_assignment.employee_data.employee_CDC on table rgh_assignment.employee_data.employee_data_trans; 
+create or replace  stream rgh_assignment.employee_data.employee_CDC on table rgh_assignment.employee_data.employee_data_transform; 
