@@ -1,4 +1,4 @@
-***Project flow***:                                                                                                                                             
+##Project flow:                                                                                                                                             
 
 Source file  EmployeeData<YYYYMMDDHHMISS>.csv will arrive to a particular path on Unix server with timestamp which will make the file unique everytime.
 Same file will be reflected on S3 and then will get loaded snowflake external stage.
@@ -6,11 +6,11 @@ From external stage data will be loaded to snowflake transient table via snowpip
 Once data is loaded to transient table then newly inserted data will be captured into Append_only stream and all the CDC will be captured into CDC stream.
 Both the streams will be read by different tasks to load the data into snowflake table finally.
 ----------------------------------------------------------------------------------------------------------------------------------------------
-*** Execution Steps*** :
+##Execution Steps:
 
-***1) Create an AWS IAM user to connect to Unix server using the AWS CLI.***
+#1) Create an AWS IAM user to connect to Unix server using the AWS CLI.***
 
-***2) Create a bitbucket on s3 where all the intended files need to be uploaded.***
+#2) Create a bitbucket on s3 where all the intended files need to be uploaded.***
            https://github.com/kapasiya88/RGH_Repo/blob/9136a33e4e9f072c2088cdaa745adfc27ae84e67/src/Commands%20to%20upload%20files%20from%20unix%20server%20to%20s3
   
   ***3) Create an integration object to establish connection between Snowflake and AWS.***
