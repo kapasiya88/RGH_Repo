@@ -1,0 +1,4 @@
+create or replace stage rgh_assignment.employee_data.my_s3_stage                                                                              
+     storage_integration = s3_int                                                                                                                             
+     url = 's3://rgh-assignment/'                                                                                                                        
+     file_format = rgh_assignment.employee_data.my_csv_format;
