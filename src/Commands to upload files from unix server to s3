@@ -1,0 +1,8 @@
+Oms-MacBook-Pro:~ ompayla$ aws configure
+  AWS Access Key ID [****************KC4A]: <access key id>
+  AWS Secret Access Key [****************tEAK]: <secret access key>
+  Default region name [ap-south-1]: ap-south-1 
+  Default output format [json]: json        
+  Oms-MacBook-Pro:~ ompayla$ aws s3 cp /Users/ompayla/Desktop/Kajal/study/Assignment/Employee.csv s3://rgh-assignment/
+
+*** NOTE: All the process of uploading the file/files on AWS can be automated by creating a unix shell script which can be called from a scheduler. ***
