@@ -39,11 +39,11 @@ Both the streams will be read by different tasks to load the data into snowflake
   
 ****8) create streams to capture the CDC.****                                                                                                                          
     a) Stream to capture the newly inserted data.                                                                                                              
-          https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Insert%20Stream
+          https://github.com/kapasiya88/RGH_Repo/blob/307b1371918fa00d8b591832cbdb0d5465400075/src/Insert%20Stream
           
           
   b) Stream to capture the CDC data.
-         https://github.com/kapasiya88/RGH_Repo/blob/998fe86a11ad64007f9524ba2e1f58be5c6d47f0/src/CDC%20stream
+         https://github.com/kapasiya88/RGH_Repo/blob/307b1371918fa00d8b591832cbdb0d5465400075/src/CDC%20stream
   
 ****9) Snowflake table where data will be loaded.****
            https://github.com/kapasiya88/RGH_Repo/blob/a7da27d4963736a702ceb43eb5ce01c1d774d1c0/src/Permanent%20table
